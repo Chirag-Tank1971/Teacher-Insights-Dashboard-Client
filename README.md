@@ -23,25 +23,28 @@ The frontend is designed to be simple, clean, and production-ready without unnec
 
 ---
 
-## 🏗️ Project Structure
+## 📁 Project Structure
 
+```
 frontend/
 │
-├── app/ # App Router pages
-│ ├── page.js # Dashboard main page
+├── app/                         # App Router pages
+│   └── page.js                  # Dashboard main page
 │
-├── components/ # Reusable UI components
-│ ├── SummaryCards.js
-│ ├── TeacherSelector.js
-│ ├── WeeklyChart.js
-│ ├── TeacherBreakdown.js
+├── components/                  # Reusable UI components
+│   ├── SummaryCards.js
+│   ├── TeacherSelector.js
+│   ├── WeeklyChart.js
+│   └── TeacherBreakdown.js
 │
-├── .env.local # Local environment variables (not committed)
-├── env.example # Environment variable template
+├── .env.local                   # Local environment variables (not committed)
+├── env.example                  # Environment variable template
 ├── next.config.mjs
-└── tailwind.config.mjs
+├── tailwind.config.mjs
+├── postcss.config.mjs
+└── package.json
+```
 
----
 
 ## 📊 Features Implemented
 
@@ -122,3 +125,4 @@ http://localhost:3000
 npm run build
 
 npm start
+
