@@ -29,8 +29,8 @@ The frontend is designed to be simple, clean, and production-ready without unnec
 
 Use the following credentials to log in:
 
-Email: principal@school.edu
-Password: StrongPassword123
+- Email: principal@school.edu
+- Password: StrongPassword123
 
 ## 📁 Project Structure
 
@@ -170,5 +170,6 @@ http://localhost:3000
 npm run build
 
 npm start
+
 
 
