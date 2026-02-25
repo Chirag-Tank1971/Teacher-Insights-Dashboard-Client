@@ -8,6 +8,7 @@ The dashboard allows a school administrator (principal) to:
 - Analyze weekly activity trends
 - Filter and view per-teacher analytics
 - Visualize structured activity data using charts
+- Access the system securely using JWT authentication
 
 ---
 
@@ -16,6 +17,7 @@ The dashboard allows a school administrator (principal) to:
 - **Framework:** Next.js (App Router)
 - **Styling:** Tailwind CSS
 - **Charts:** Recharts
+- **Authentication:** JWT (JSON Web Token)
 - **API Communication:** Fetch API
 - **State Management:** React Hooks (useState, useEffect)
 
@@ -23,13 +25,21 @@ The frontend is designed to be simple, clean, and production-ready without unnec
 
 ---
 
+🔑 Admin / Principal Login Credentials
+
+Use the following credentials to log in:
+
+Email: principal@school.edu
+Password: StrongPassword123
+
 ## 📁 Project Structure
 
 ```
 frontend/
 │
 ├── app/                         # App Router pages
-│   └── page.js                  # Dashboard main page
+│   ├── page.js                  # Dashboard main page
+    ├── login/page.js            # Login page
 │
 ├── components/                  # Reusable UI components
 │   ├── SummaryCards.js
@@ -86,17 +96,52 @@ Shows:
 
 ---
 
+## 🔐 Authentication (JWT Implementation)
+
+- The application includes secure JWT-based authentication.
+
+- Only authenticated Admin (Principal) users can access the dashboard.
+
+---
+
+## 🔄 Authentication Flow
+
+- Admin logs in using email & password
+- Backend validates credentials
+- Backend generates a JWT token
+- Token is returned to frontend
+- Token is stored (localStorage or secure cookie)
+- Token is sent in Authorization header for protected routes
+
+- Example header:
+- Authorization: Bearer <JWT_TOKEN>
+
+---
+
+## 🔒 Protected Routes
+
+- GET /api/summary
+- GET /api/teachers
+- GET /api/teachers/:id/weekly
+- GET /api/teachers/:id/details
+
+- If token is missing or invalid:
+
+- 401 Unauthorized
+
+---
+
 ## 🔐 Environment Variables
 
-Create a `.env.local` file inside `frontend/`:
+- Create a `.env.local` file inside `frontend/`:
 
-NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
+- NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
 
-For production:
+- For production:
 
-NEXT_PUBLIC_API_BASE_URL=https://your-backend-url.com
+- NEXT_PUBLIC_API_BASE_URL=https://your-backend-url.com
 
-An `env.example` file is included for reference.
+- An `env.example` file is included for reference.
 
 ---
 
@@ -125,4 +170,5 @@ http://localhost:3000
 npm run build
 
 npm start
+
 
